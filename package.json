@@ -1,0 +1,20 @@
+{
+  "name": "audio-studio-skill",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Paperclip skill: code-generated music beds with Tone.js, two approved styles, measurable QA gate.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "doctor": "sh scripts/doctor.sh",
+    "selfcheck": "node tests/selfcheck.mjs",
+    "test": "node tests/selfcheck.mjs"
+  },
+  "dependencies": {
+    "node-web-audio-api": "2.2.0",
+    "tone": "15.1.22"
+  }
+}
