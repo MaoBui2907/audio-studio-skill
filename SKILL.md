@@ -28,14 +28,14 @@ Yêu cầu: Node >= 20, ffmpeg >= 7 (có ffprobe). Không cần root.
 git clone <audio-studio-skill repo URL>
 cd audio-studio-skill
 npm install
-sh scripts/doctor.sh --install   # tải ffmpeg 7 static + libasound nếu thiếu, vào .tools/
+sh scripts/setup-tools.sh        # tải ffmpeg 7 static + libasound shim vào .tools/ (nếu thiếu)
 sh scripts/doctor.sh             # phải in doctor: PASS
 ```
 
-- `doctor.sh` tìm `ffmpeg`/`ffprobe` theo `PATH`, rồi `AUDIO_STUDIO_BIN`, rồi `.tools/bin`.
+- `doctor.sh` chỉ kiểm tra, không tải gì. `ffmpeg`/`ffprobe` được tìm theo `PATH`, rồi `AUDIO_STUDIO_BIN`, rồi `.tools/bin`.
 - `AUDIO_STUDIO_BIN` mặc định `$PWD/.tools/bin`; đặt biến này nếu muốn dùng binary ở nơi khác (ví dụ `$HOME/.local/audio-studio/bin`).
-- `--install` cần `curl` và `python3` (chỉ dùng để giải nén `.xz`/`.deb`).
-- Linux x64 là môi trường được kiểm chứng. `node-web-audio-api` cần `libasound.so.2`; `doctor.sh --install` đặt bản shim vào `.tools/lib` và `render.sh` tự thêm vào `LD_LIBRARY_PATH`.
+- `setup-tools.sh` mới tải gì; cần `curl` và `python3` (chỉ để giải nén `.xz`/`.deb`). Script này tách khỏi gói skill vì trình import của Paperclip không cho phép remote-fetch/runtime-install trong file skill.
+- Linux x64 là môi trường được kiểm chứng. `node-web-audio-api` cần `libasound.so.2`; `setup-tools.sh` đặt bản shim vào `.tools/lib` và `render.sh` tự thêm vào `LD_LIBRARY_PATH`.
 
 ## 16 style được duyệt (danh sách đóng)
 
@@ -73,7 +73,7 @@ Danh sách máy đọc: `scripts/styles.txt`. Thêm style phải được CEO/CT
 
 ```sh
 sh scripts/doctor.sh                    # kiểm môi trường, exit != 0 nếu thiếu
-sh scripts/doctor.sh --install          # cài ffmpeg 7 static + libasound vào .tools/
+sh scripts/setup-tools.sh               # cài ffmpeg 7 static + libasound vào .tools/ (chạy một lần)
 sh scripts/render.sh demo/corporate-uplift 10
 sh scripts/render.sh demo/kids-playful 10
 node tests/selfcheck.mjs                # kiểm contract style + render ngắn
@@ -139,8 +139,8 @@ export function render(tone, timeline) { /* lập lịch nốt */ }
 
 ## Troubleshooting
 
-- `ffmpeg not found` / `< 7`: chạy `sh scripts/doctor.sh --install` hoặc đặt `AUDIO_STUDIO_BIN` trỏ tới thư mục chứa ffmpeg 7.
-- `libasound.so.2: cannot open shared object file`: chạy `sh scripts/doctor.sh --install` (shim vào `.tools/lib`) rồi dùng `render.sh` (tự export `LD_LIBRARY_PATH`).
+- `ffmpeg not found` / `< 7`: chạy `sh scripts/setup-tools.sh` hoặc đặt `AUDIO_STUDIO_BIN` trỏ tới thư mục chứa ffmpeg 7.
+- `libasound.so.2: cannot open shared object file`: chạy `sh scripts/setup-tools.sh` (shim vào `.tools/lib`) rồi dùng `render.sh` (tự export `LD_LIBRARY_PATH`).
 - `param must be an AudioParam` hoặc `Missing the native OfflineAudioContext constructor`: đang import `tone` trước khi gán global Web Audio; dùng `render.mjs`/`selfcheck.mjs` làm mẫu, đừng import Tone trực tiếp trong script mới.
 - Loudness lệch ngoài −16…−12 LUFS: kiểm tra `qa.json` `lufs`; nếu loudnorm không hội tụ do track quá ngắn (< 3s), tăng thời lượng hoặc giảm dynamic (thêm pad/comp nhẹ ở style — cần CTO duyệt vì sửa style).
 - Khoảng lặng > 1s: thường do style để trống giữa track; thêm nhạc cụ giữ nhịp hoặc giảm khoảng nghỉ trong project.
