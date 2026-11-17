@@ -1,6 +1,6 @@
 ---
 name: audio-studio
-description: Sản xuất nhạc nền và SFX ngắn hoàn toàn bằng code với Tone.js, chỉ dùng 2 style đã duyệt cho mục đích sản xuất nội dung. Dùng khi cần bed nhạc 5-60 giây cho video, podcast, promo; có doctor kiểm môi trường, render tái lập theo seed và QA đo được. Không dùng cho bài hát có lời, giọng hát, hoặc nhạc cần model sinh.
+description: Sản xuất nhạc nền và SFX ngắn hoàn toàn bằng code với Tone.js, chỉ dùng 16 style đã duyệt cho mục đích sản xuất nội dung. Dùng khi cần bed nhạc 5-60 giây cho video, podcast, promo; có doctor kiểm môi trường, render tái lập theo seed và QA đo được. Không dùng cho bài hát có lời, giọng hát, hoặc nhạc cần model sinh.
 ---
 
 # Audio Studio (v1)
@@ -37,19 +37,33 @@ sh scripts/doctor.sh             # phải in doctor: PASS
 - `--install` cần `curl` và `python3` (chỉ dùng để giải nén `.xz`/`.deb`).
 - Linux x64 là môi trường được kiểm chứng. `node-web-audio-api` cần `libasound.so.2`; `doctor.sh --install` đặt bản shim vào `.tools/lib` và `render.sh` tự thêm vào `LD_LIBRARY_PATH`.
 
-## 2 style được duyệt (danh sách đóng)
+## 16 style được duyệt (danh sách đóng)
 
 | Slug | Tên | Nhịp | Giọng | Dùng cho |
 |---|---|---|---|---|
 | `corporate-uplift` | Corporate Uplift | 110 BPM | C major | Promo sản phẩm, onboarding, báo cáo quý, giới thiệu công ty |
 | `kids-playful` | Kids Playful | 132 BPM | F major | Thiếu nhi, hoạt hình, học tập vui, quảng cáo đồ chơi |
+| `tech-minimal` | Tech Minimal | 90 BPM | C major | SaaS demo, thông báo, UI sound, onboarding kỹ thuật |
+| `cinematic-trailer` | Cinematic Trailer | 100 BPM | D minor | Launch, teaser, sự kiện lớn, mở đầu cao trào |
+| `documentary-bed` | Documentary Bed | 78 BPM | E minor | Phóng sự, câu chuyện thương hiệu, phỏng vấn chậm |
+| `ad-pop` | Ad Pop | 122 BPM | G major | Quảng cáo 15-30s, CTA mạnh, promo, social clip |
+| `ambient-focus` | Ambient Focus | 70 BPM | C major | Nền giải thích, khóa học, chờ, hướng dẫn dài |
+| `lofi-study` | Lo-fi Study | 76 BPM | A minor | Social, thư giãn, nội dung dài, live chill |
+| `news-bed` | News Bed | 96 BPM | C major | Bản tin, podcast tin tức, phỏng vấn |
+| `podcast-jazz` | Podcast Jazz | 88 BPM | F major | Intro/outro podcast, nền nói chuyện |
+| `acoustic-uplift` | Acoustic Uplift | 96 BPM | G major | Brand ấm, câu chuyện người thật, nội dung chân thật |
+| `chiptune` | Chiptune | 140 BPM | C major | Game, retro, nội dung pixel |
+| `synthwave` | Synthwave | 108 BPM | A minor | Công nghệ, hoài niệm 80s, retro-futuristic |
+| `minimal-click` | Minimal Click | 120 BPM | C major | SFX/UI ngắn, chuyển cảnh, thông báo nhẹ |
+| `data-pulse` | Data Pulse | 120 BPM | C major | Báo cáo KPI, dashboard, sonification dữ liệu |
+| `corporate-hiphop` | Corporate Hip-hop | 92 BPM | A minor | Social trẻ, năng lượng, brand gen Z |
 
 Danh sách máy đọc: `scripts/styles.txt`. Thêm style phải được CEO/CTO duyệt trước; không tự thêm.
 
 ## Quy trình bắt buộc
 
 1. **Brief.** Chốt mục tiêu, đối tượng, cảm xúc, thời lượng, nơi phát (có thoại hay không), deadline. Không hỏi lại thứ brief đã trả lời.
-2. **Chọn style.** Chỉ chọn trong 2 style trên. Không phù hợp thì báo CTO, không tự tạo style mới.
+2. **Chọn style.** Chỉ chọn trong 16 style trên. Không phù hợp thì báo CTO, không tự tạo style mới.
 3. **Treatment.** Viết `TREATMENT.md` trong project: mục đích, cấu trúc (BPM/giọng/vòng hợp âm/nhạc cụ), cue theo mốc thời gian. Viết trước khi render.
 4. **Render.** `sh scripts/render.sh <projectDir> [seconds]`. Không sửa `scripts/render.mjs` hay `styles/` cho từng project; chỉ tạo project mới.
 5. **QA gate.** `render.sh` tự chạy `qa.mjs`; chỉ giao khi `qa.json` có `"pass": true`. FAIL thì đọc `reasons`, sửa project/style rồi render lại.
