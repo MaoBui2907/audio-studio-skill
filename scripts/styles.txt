@@ -1,2 +1,16 @@
+acoustic-uplift
+ad-pop
+ambient-focus
+chiptune
+cinematic-trailer
+corporate-hiphop
 corporate-uplift
+data-pulse
+documentary-bed
 kids-playful
+lofi-study
+minimal-click
+news-bed
+podcast-jazz
+synthwave
+tech-minimal

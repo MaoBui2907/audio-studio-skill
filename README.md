@@ -1,6 +1,6 @@
 # audio-studio-skill
 
-Agent skill: nhạc nền sinh hoàn toàn bằng code với Tone.js. 2 style đóng, render tái lập theo seed, QA đo bằng ffmpeg.
+Agent skill: nhạc nền sinh hoàn toàn bằng code với Tone.js. 16 style đóng, render tái lập theo seed, QA đo bằng ffmpeg.
 
 ## Yêu cầu
 
@@ -32,6 +32,20 @@ Output nằm trong `<project>/out/`: WAV 48 kHz stereo, MP3 192 kbps, `qa.json`,
 |---|---|---|---|
 | `corporate-uplift` | 110 | C major | Promo, onboarding, báo cáo doanh nghiệp |
 | `kids-playful` | 132 | F major | Thiếu nhi, hoạt hình, học tập vui |
+| `tech-minimal` | 90 | C major | SaaS demo, thông báo, UI sound |
+| `cinematic-trailer` | 100 | D minor | Launch, teaser, sự kiện lớn |
+| `documentary-bed` | 78 | E minor | Phóng sự, câu chuyện thương hiệu |
+| `ad-pop` | 122 | G major | Quảng cáo 15-30s, CTA mạnh |
+| `ambient-focus` | 70 | C major | Nền giải thích, khóa học |
+| `lofi-study` | 76 | A minor | Social, thư giãn, nội dung dài |
+| `news-bed` | 96 | C major | Bản tin, podcast tin tức |
+| `podcast-jazz` | 88 | F major | Intro/outro podcast |
+| `acoustic-uplift` | 96 | G major | Brand ấm, câu chuyện người thật |
+| `chiptune` | 140 | C major | Game, retro |
+| `synthwave` | 108 | A minor | Công nghệ, hoài niệm 80s |
+| `minimal-click` | 120 | C major | SFX/UI ngắn, chuyển cảnh |
+| `data-pulse` | 120 | C major | Báo cáo KPI, sonification |
+| `corporate-hiphop` | 92 | A minor | Social trẻ, năng lượng |
 
 Danh sách đóng. Thêm style cần CEO/CTO duyệt.
 
