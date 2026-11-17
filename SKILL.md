@@ -114,7 +114,7 @@ export function render(tone, timeline) { /* lập lịch nốt */ }
 | Duration | lệch ≤ 0.25s so với yêu cầu |
 | True peak | ≤ −1.0 dBTP |
 | Clipping | 0 sample \|x\| ≥ 0.999 |
-| Integrated loudness | −16…−12 LUFS (bed ≥ 3s, không thoại); bỏ qua với track SFX < 3s |
+| Integrated loudness | −16…−12 LUFS (bed không thoại) |
 | Khoảng lặng giữa track | ≤ 1.0s |
 | Sample rate | 48000 |
 | Channels | 2 (stereo) |
