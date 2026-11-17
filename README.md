@@ -5,14 +5,14 @@ Agent skill: nhạc nền sinh hoàn toàn bằng code với Tone.js. 16 style �
 ## Yêu cầu
 
 - Node >= 20
-- ffmpeg >= 7 + ffprobe (cài bằng `scripts/setup-tools.sh`)
+- ffmpeg >= 7 + ffprobe (cài bằng `scripts/setup-tools.mjs`)
 - Linux x64 đã được kiểm chứng
 
 ## Cài đặt
 
 ```sh
 npm install
-sh scripts/setup-tools.sh
+sh scripts/setup-tools.mjs
 sh scripts/doctor.sh
 ```
 
@@ -53,8 +53,8 @@ Danh sách đóng. Thêm style cần CEO/CTO duyệt.
 
 ```text
 SKILL.md              hướng dẫn cho agent
-scripts/doctor.sh     kiểm môi trường, không tải gì
-scripts/setup-tools.sh tải ffmpeg 7 + libasound vào .tools/ (một lần)
+scripts/doctor.sh      kiểm môi trường, không tải gì
+scripts/setup-tools.mjs tải ffmpeg 7 + libasound vào .tools/ (một lần)
 scripts/render.sh     render → loudnorm 2-pass → QA
 scripts/render.mjs    engine Tone.Offline, seed, WAV
 scripts/loudnorm.mjs  loudnorm 2-pass + MP3
