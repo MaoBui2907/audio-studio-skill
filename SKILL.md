@@ -25,7 +25,7 @@ Skill công ty để tạo nhạc nền bằng code: engine Tone.js render offli
 Yêu cầu: Node >= 20, ffmpeg >= 7 (có ffprobe). Không cần root.
 
 ```sh
-git clone https://github.com/MaoBui2907/audio-studio-skill.git
+git clone <audio-studio-skill repo URL>
 cd audio-studio-skill
 npm install
 sh scripts/doctor.sh --install   # tải ffmpeg 7 static + libasound nếu thiếu, vào .tools/

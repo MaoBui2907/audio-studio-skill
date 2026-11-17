@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Paperclip skill: code-generated music beds with Tone.js, two approved styles, measurable QA gate.",
+  "description": "Agent skill: code-generated music beds with Tone.js, two approved styles, measurable QA gate.",
   "license": "UNLICENSED",
   "engines": {
     "node": ">=20"

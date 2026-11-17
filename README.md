@@ -1,6 +1,6 @@
 # audio-studio-skill
 
-Paperclip skill: nhạc nền sinh hoàn toàn bằng code với Tone.js. 2 style đóng, render tái lập theo seed, QA đo bằng ffmpeg.
+Agent skill: nhạc nền sinh hoàn toàn bằng code với Tone.js. 2 style đóng, render tái lập theo seed, QA đo bằng ffmpeg.
 
 ## Yêu cầu
 
