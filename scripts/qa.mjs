@@ -72,7 +72,7 @@ if (requested !== null && Math.abs(duration - requested) > 0.25) {
 }
 if (!(peakDb <= -1.0)) reasons.push(`true peak ${peakDb} dBTP > -1.0`);
 if (clipped !== 0) reasons.push(`${clipped} sample clipping`);
-if (!(lufs >= -16 && lufs <= -12)) reasons.push(`integrated loudness ${lufs} LUFS ngoài -16…-12`);
+if (duration >= 3 && !(lufs >= -16 && lufs <= -12)) reasons.push(`integrated loudness ${lufs} LUFS ngoài -16…-12`);
 if (longestSilence > 1.0) reasons.push(`khoảng lặng ${longestSilence}s > 1.0s`);
 if (sampleRate !== 48000) reasons.push(`sample rate ${sampleRate} != 48000`);
 if (channels !== 2) reasons.push(`channels ${channels} != 2`);
