@@ -62,4 +62,4 @@ Duration lệch ≤ 0.25s; true peak ≤ −1.0 dBTP; 0 clipping; −16…−12 
 
 ## License
 
-Nội bộ HyperSense. Không dùng sample/asset ngoài; không dùng edge-tts/Coqui cho thương mại.
+Internal project. Không dùng sample/asset ngoài; không dùng edge-tts/Coqui cho thương mại.

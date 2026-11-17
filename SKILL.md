@@ -1,6 +1,6 @@
 ---
 name: audio-studio
-description: Sản xuất nhạc nền và SFX ngắn hoàn toàn bằng code với Tone.js, chỉ dùng 2 style đã duyệt cho HyperSense. Dùng khi cần bed nhạc 5-60 giây cho video, podcast, promo; có doctor kiểm môi trường, render tái lập theo seed và QA đo được. Không dùng cho bài hát có lời, giọng hát, hoặc nhạc cần model sinh.
+description: Sản xuất nhạc nền và SFX ngắn hoàn toàn bằng code với Tone.js, chỉ dùng 2 style đã duyệt cho mục đích sản xuất nội dung. Dùng khi cần bed nhạc 5-60 giây cho video, podcast, promo; có doctor kiểm môi trường, render tái lập theo seed và QA đo được. Không dùng cho bài hát có lời, giọng hát, hoặc nhạc cần model sinh.
 ---
 
 # Audio Studio (v1)
